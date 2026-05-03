@@ -1,5 +1,5 @@
 import SignupForm from "./components/SignupForm";
-import { Coffee, Globe, ShieldCheck, MapPin } from "lucide-react";
+import { Coffee, Globe, ShieldCheck, MapPin, BookOpen } from "lucide-react";
 
 async function getRoasters() {
   const res = await fetch("https://app.baget.ai/api/public/databases/49212929-3fe1-426e-9c75-77d677ea640e/rows", {
@@ -36,6 +36,7 @@ export default async function Home() {
         <div className="hidden md:flex gap-8 text-sm uppercase tracking-widest font-bold text-sepia">
           <a href="#mission" className="hover:text-burgundy transition-colors">Mission</a>
           <a href="#roasters" className="hover:text-burgundy transition-colors">Roasters</a>
+          <a href="#guides" className="hover:text-burgundy transition-colors">Guides</a>
           <a href="#join" className="hover:text-burgundy transition-colors">Join</a>
         </div>
       </nav>
@@ -68,23 +69,43 @@ export default async function Home() {
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="absolute -bottom-6 -left-6 bg-parchment p-6 border-2 border-burgundy shadow-xl hidden lg:block max-w-[240px]">
-            <p className="text-xs uppercase tracking-widest font-bold text-burgundy mb-2">Live Trace Status</p>
-            <div className="space-y-3">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-600 rounded-full animate-pulse" />
-                <span className="text-[10px] text-sepia font-bold">CHIANG MAI: ROASTING</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-burgundy rounded-full" />
-                <span className="text-[10px] text-sepia font-bold">BOGOTÁ: IN TRANSIT</span>
-              </div>
+        </div>
+      </section>
+
+      {/* Guides Section */}
+      <section id="guides" className="py-24 bg-sepia/5 border-y border-sepia/10">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="mb-16 text-center">
+            <h2 className="text-4xl font-serif text-burgundy mb-4">The Connoisseur's Journal</h2>
+            <p className="text-sepia/70 max-w-xl mx-auto">Deep dives into the science, ethics, and craft of specialty coffee.</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-parchment p-8 border border-burgundy/20 hover:shadow-xl transition-all">
+              <h3 className="text-xl font-serif text-burgundy mb-4">The Truth About Sourcing</h3>
+              <p className="text-sm text-sepia/80 mb-6">Why "Direct Trade" is the only path to radical transparency and farmer equity.</p>
+              <a href="/guides/ethical-sourcing.md" className="text-burgundy font-bold uppercase text-xs tracking-widest hover:underline flex items-center gap-2">
+                Read Guide <BookOpen size={14} />
+              </a>
+            </div>
+            <div className="bg-parchment p-8 border border-burgundy/20 hover:shadow-xl transition-all">
+              <h3 className="text-xl font-serif text-burgundy mb-4">The Science of Freshness</h3>
+              <p className="text-sm text-sepia/80 mb-6">Understanding the "Freshness Gap" and why roasting at origin changes everything.</p>
+              <a href="/guides/freshness-gap.md" className="text-burgundy font-bold uppercase text-xs tracking-widest hover:underline flex items-center gap-2">
+                Read Guide <BookOpen size={14} />
+              </a>
+            </div>
+            <div className="bg-parchment p-8 border border-burgundy/20 hover:shadow-xl transition-all">
+              <h3 className="text-xl font-serif text-burgundy mb-4">Navigating Microlots</h3>
+              <p className="text-sm text-sepia/80 mb-6">A guide to SCA scores, processing methods, and global flavor profiles.</p>
+              <a href="/guides/microlot-guide.md" className="text-burgundy font-bold uppercase text-xs tracking-widest hover:underline flex items-center gap-2">
+                Read Guide <BookOpen size={14} />
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features */}
+      {/* Features section (keeping existing) */}
       <section id="mission" className="bg-navy text-parchment py-24">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-4xl font-serif mb-16 text-center italic">The Origin-First Philosophy</h2>
@@ -153,10 +174,6 @@ export default async function Home() {
             Our pilot is limited to 1,000 founding members. Join the waitlist for priority access to our Q3 launch.
           </p>
           <SignupForm />
-        </div>
-        {/* Background Decorative Text */}
-        <div className="absolute top-1/2 left-0 -translate-y-1/2 -rotate-90 text-[120px] font-serif font-bold text-burgundy/5 whitespace-nowrap pointer-events-none select-none">
-          RADICAL TRANSPARENCY
         </div>
       </section>
 
