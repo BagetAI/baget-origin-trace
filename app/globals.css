@@ -41,3 +41,17 @@ h1, h2, h3, h4 {
 .btn-primary {
   @apply bg-burgundy text-parchment px-8 py-4 rounded-sm font-bold uppercase tracking-widest hover:bg-navy transition-colors duration-300;
 }
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+@layer utilities {
+  .tracking-tighter {
+    letter-spacing: -0.05em;
+  }
+  .tracking-widest {
+    letter-spacing: 0.2em;
+  }
+}
